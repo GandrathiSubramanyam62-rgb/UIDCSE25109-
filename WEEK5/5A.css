@@ -1,0 +1,18 @@
+.container{
+    display:flex;
+    justify-content:space-around;
+    align-items:flex-start;
+}
+
+.IPL{
+    width:30%;
+    text-align:center;
+}
+
+.IPL img{
+    width:200px;
+}
+
+.IPL p{
+    text-align:justify;
+}
