@@ -1,0 +1,52 @@
+body{
+    background-color: #121315;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 20px;
+}
+h1 {
+    color: gold;
+    text-align: center;
+}
+nav{
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: large;
+}
+button{
+    background-color: rgb(192, 134, 48);
+    border: none;
+    padding: 10px 20px;
+    margin: 0 10px;
+    cursor: pointer;
+    font-size: medium;
+    border-radius: 5px;
+}
+button:hover{
+    background-color:rgb(9, 9, 81);
+    color: rgb(169, 152, 195);
+    text-decoration: underline;
+    
+}
+.login{
+    float: left;
+    background-color: rgb(159, 204, 214);
+    padding: 35px;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 520px;
+    margin: 0;
+    height:450px;
+}
+div h2{
+    color:brown;    
+}
+iframe{  
+    width: 70%;
+    height: 520px;
+    border: 1;
+    float: right;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(166, 89, 89, 0.1);
+    background-color: rgb(161, 132, 175);
+}
