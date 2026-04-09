@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Circle Move + Rotate</title>
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;  
+       background-color: rgb(163, 206, 168);
+    }
+
+    h1 {
+      text-align: center;
+      margin: 10px 0;
+    }
+    .center {
+      flex: 1; 
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .circle {
+      width: 80px;
+      height: 80px;
+      background-color: rgb(68, 18, 50);
+      border-radius: 50%;
+      animation: moveRotate 3s linear infinite;
+    }
+
+    @keyframes moveRotate {
+      0% {
+        transform: translateX(0) rotate(0deg);
+      }
+      50% {
+        transform: translateX(300px) rotate(180deg);
+      }
+      100% {
+        transform: translateX(0) rotate(360deg);
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2 style="color: rgb(143, 120, 9);"> G.SUBRAMANYAM CSE 25109</h2>
+
+<div class="center">
+  <div class="circle"></div>
+</div>
+
+</body>
+</html>
