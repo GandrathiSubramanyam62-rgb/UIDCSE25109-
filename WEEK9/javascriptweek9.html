@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <h1 style="color: gold;">G.SUBRAMANYAM CSE25109</h1>
+    <meta charset="UTF-8">
+    <title>Number Programs</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(120deg, rgb(65, 106, 106), rgb(234, 198, 235));
+            text-align: center;
+            padding: 50px;
+        }
+
+        h1 {
+            color: #3a2121;
+        }
+
+        .container {
+            background: rgb(231, 236, 199);
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        input {
+            padding: 10px;
+            width: 80%;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            border: 1px solid #8e8989;
+        }
+
+        button {
+            margin: 5px;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 8px;
+            background-color:rgb(245, 198, 210);
+            color:black;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color:rgb(166, 166, 118);
+        }
+
+        #output {
+            margin-top: 20px;
+            font-weight: bold;
+            color: #065519;
+            background: #6293c5;
+            padding: 15px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Number Checker</h1>
+
+        <input type="number" id="num" placeholder="Enter a number">
+
+        <div>
+            <button onclick="checkEven()">Even</button>
+            <button onclick="checkOdd()">Odd</button>
+            <button onclick="checkPrime()">Prime</button>
+            <button onclick="factorial()">Factorial</button>
+            <button onclick="checkArmstrong()">Armstrong</button>
+        </div>
+
+        <div id="output">Output will appear here</div>
+    </div>
+
+    <script>
+        function getInput() {
+            return parseInt(document.getElementById("num").value);
+        }
+
+        function showOutput(msg) {
+            document.getElementById("output").innerText = msg;
+        }
+
+        function checkEven() {
+            let n = getInput();
+            if (n % 2 === 0)
+                showOutput(n + " is Even");
+            else
+                showOutput(n + " is NOT Even");
+        }
+
+        function checkOdd() {
+            let n = getInput();
+            if (n % 2 !== 0)
+                showOutput(n + " is Odd");
+            else
+                showOutput(n + " is NOT Odd");
+        }
+
+        function checkPrime() {
+            let n = getInput();
+            if (n <= 1) {
+                showOutput(n + " is NOT Prime");
+                return;
+            }
+
+            for (let i = 2; i <= Math.sqrt(n); i++) {
+                if (n % i === 0) {
+                    showOutput(n + " is NOT Prime");
+                    return;
+                }
+            }
+            showOutput(n + " is Prime");
+        }
+
+        function factorial() {
+            let n = getInput();
+            let fact = 1;
+
+            if (n < 0) {
+                showOutput("Factorial not defined for negative numbers");
+                return;
+            }
+
+            for (let i = 1; i <= n; i++) {
+                fact *= i;
+            }
+            showOutput("Factorial of " + n + " is " + fact);
+        }
+
+        function checkArmstrong() {
+            let n = getInput();
+            let sum = 0;
+            let temp = n;
+            let digits = n.toString().length;
+
+            while (temp > 0) {
+                let digit = temp % 10;
+                sum += Math.pow(digit, digits);
+                temp = Math.floor(temp / 10);
+            }
+
+            if (sum === n)
+                showOutput(n + " is an Armstrong Number");
+            else
+                showOutput(n + " is NOT an Armstrong Number");
+        }
+    </script>
+
+</body>
+</html>
