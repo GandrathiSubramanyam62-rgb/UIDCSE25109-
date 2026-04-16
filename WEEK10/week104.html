@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Odd or Even</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #ff6a00, #ff8c00);
+            text-align: center;
+            margin: 0;
+            padding-top: 80px;
+            color: white;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: black;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 15px;
+            width: 350px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.6);
+        }
+
+        h2 {
+            color: orange;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: black;
+            color: orange;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 15px orange;
+        }
+
+        #output {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 10px;
+            background: rgba(255,255,255,0.1);
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .even { color: #00ffcc; }
+        .odd { color: #ffcc00; }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 13px;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+       G.SUBRAMANYAM CSE25109
+    </div>
+
+    <div class="container">
+        <h2>Odd or Even (0 to 15)</h2>
+
+        <button onclick="checkNumbers()">Check</button>
+
+        <div id="output">Click the button to display results</div>
+    </div>
+
+    <div class="footer">
+      
+    </div>
+
+    <script>
+        function checkNumbers() {
+            let result = "";
+
+            for (let i = 0; i <= 15; i++) {
+                if (i % 2 === 0) {
+                    result += "<span class='even'>" + i + " is even</span><br>";
+                } else {
+                    result += "<span class='odd'>" + i + " is odd</span><br>";
+                }
+            }
+
+            document.getElementById("output").innerHTML = result;
+        }
+    </script>
+
+</body>
+</html>

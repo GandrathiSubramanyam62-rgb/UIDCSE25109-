@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> Sort Three Numbers</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #004ba0, #0a1f44);
+            text-align: center;
+            margin-top: 100px;
+            color: white;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            color: gold;
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.1);
+            padding: 30px;
+            border-radius: 15px;
+            width: 320px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.5);
+            border: 2px solid gold;
+        }
+
+        h2 {
+            color: gold;
+        }
+
+        input {
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            border: none;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, gold, #ffd700);
+            color: #002b5c;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 15px gold;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #ccc;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        G.SUBRAMANYAM CSE25109
+    </div>
+
+    <div class="container">
+        <h2>Sort Three Numbers</h2>
+
+        <input type="number" id="n1" placeholder="Enter number 1"><br>
+        <input type="number" id="n2" placeholder="Enter number 2"><br>
+        <input type="number" id="n3" placeholder="Enter number 3"><br>
+
+        <button onclick="sortNumbers()">Sort</button>
+    </div>
+
+    <div class="footer">
+
+    </div>
+
+    <script>
+        function sortNumbers() {
+            let a = Number(document.getElementById("n1").value);
+            let b = Number(document.getElementById("n2").value);
+            let c = Number(document.getElementById("n3").value);
+
+            let temp;
+
+            if (a > b) {
+                temp = a;
+                a = b;
+                b = temp;
+            }
+
+            if (a > c) {
+                temp = a;
+                a = c;
+                c = temp;
+            }
+
+            if (b > c) {
+                temp = b;
+                b = c;
+                c = temp;
+            }
+
+            alert("Sorted numbers (ascending): " + a + ", " + b + ", " + c);
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Largest Number</title>
+
+    <style>
+        body {
+            font-family: 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #fdd835, #fbc02d);
+            text-align: center;
+            margin-top: 80px;
+            color: #003366;
+        }
+
+        .header {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #003366;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            background: rgba(255,255,255,0.9);
+            padding: 30px;
+            border-radius: 15px;
+            width: 340px;
+            margin: auto;
+            box-shadow: 0 0 20px rgba(0,0,0,0.3);
+            border: 3px solid #003366;
+        }
+
+        h2 {
+            color: #003366;
+        }
+
+        input {
+            width: 85%;
+            padding: 10px;
+            margin: 8px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            text-align: center;
+            font-weight: bold;
+        }
+
+        input:focus {
+            outline: none;
+            border-color: #003366;
+            box-shadow: 0 0 8px #003366;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 25px;
+            background: linear-gradient(45deg, #003366, #0055aa);
+            color: yellow;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 15px #003366;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 13px;
+            color: #003366;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="header">
+        G.SUBRAMANYAM CSE25109
+    </div>
+
+    <div class="container">
+        <h2>Find Largest Number</h2>
+
+        <input type="number" id="n1" placeholder="Enter number 1"><br>
+        <input type="number" id="n2" placeholder="Enter number 2"><br>
+        <input type="number" id="n3" placeholder="Enter number 3"><br>
+        <input type="number" id="n4" placeholder="Enter number 4"><br>
+        <input type="number" id="n5" placeholder="Enter number 5"><br>
+
+        <button onclick="findLargest()">Find Largest</button>
+    </div>
+
+    <div class="footer">
+       
+    </div>
+
+    <script>
+        function findLargest() {
+            let a = Number(document.getElementById("n1").value);
+            let b = Number(document.getElementById("n2").value);
+            let c = Number(document.getElementById("n3").value);
+            let d = Number(document.getElementById("n4").value);
+            let e = Number(document.getElementById("n5").value);
+
+            let largest;
+
+            if (a >= b && a >= c && a >= d && a >= e) {
+                largest = a;
+            } else if (b >= a && b >= c && b >= d && b >= e) {
+                largest = b;
+            } else if (c >= a && c >= b && c >= d && c >= e) {
+                largest = c;
+            } else if (d >= a && d >= b && d >= c && d >= e) {
+                largest = d;
+            } else {
+                largest = e;
+            }
+
+            alert("The largest number is: " + largest);
+        }
+    </script>
+
+</body>
+</html>
