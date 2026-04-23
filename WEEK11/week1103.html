@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<head>
+    <title> Password Strength</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #ff4da6, #4da6ff);
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            background: #ff3385;
+        }
+
+        .container {
+            width: 320px;
+            margin: 100px auto;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 77, 166, 0.6);
+            text-align: center;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 90%;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        input:focus {
+            outline: 2px solid white;
+        }
+
+        #strength {
+            margin-top: 10px;
+            font-size: 16px;
+            font-weight: bold;
+        }
+
+        .weak {
+            color: #ff1a1a;
+        }
+
+        .medium {
+            color: #ffd11a;
+        }
+
+        .strong {
+            color: #00ffcc;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    G. SUBRAMANYAM CSE25109
+</div>
+
+<div class="container">
+    <h2>Password Checker</h2>
+    <input type="password" id="password" placeholder="Enter Password">
+    <div id="strength"></div>
+</div>
+
+<script>
+    const passwordInput = document.getElementById("password");
+    const strengthText = document.getElementById("strength");
+
+    passwordInput.addEventListener("input", function() {
+        let password = passwordInput.value;
+        let strength = 0;
+
+        if (password.length >= 6) strength++;
+        if (/[A-Z]/.test(password)) strength++;
+        if (/[0-9]/.test(password)) strength++;
+        if (/[\W]/.test(password)) strength++;
+
+        if (password.length === 0) {
+            strengthText.textContent = "";
+        } 
+        else if (strength <= 1) {
+            strengthText.textContent = "Weak Password";
+            strengthText.className = "weak";
+        } 
+        else if (strength == 2 || strength == 3) {
+            strengthText.textContent = "Medium Strength";
+            strengthText.className = "medium";
+        } 
+        else {
+            strengthText.textContent = "Strong Password";
+            strengthText.className = "strong";
+        }
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Registration</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #003366);
+            color: white;
+            text-align: center;
+        }
+
+        .top-heading {
+            background: #001a33;
+            color: #00ccff;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 2px solid #00ccff;
+            box-shadow: 0 0 10px #00ccff;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.75);
+            margin: 60px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px #00ccff;
+            width: 320px;
+        }
+
+        h2 {
+            color: #00ccff;
+            margin-bottom: 20px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 2px solid #00ccff;
+            border-radius: 6px;
+            outline: none;
+            font-size: 15px;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px #00ccff;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            background: #00ccff;
+            border: none;
+            border-radius: 6px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0099cc;
+        }
+
+        .message {
+            font-size: 13px;
+            text-align: left;
+            margin-top: -5px;
+        }
+
+        .error {
+            color: #ff4d4d;
+        }
+
+        .success {
+            color: #00ff99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-heading">
+        G.SUBRAMANYAM CSE 25109
+    </div>
+
+    <div class="container">
+        <h2> Registration Form</h2>
+
+        <form id="form">
+            <input type="text" id="name" placeholder="Enter Name">
+            <div id="nameMsg" class="message"></div>
+
+            <input type="text" id="email" placeholder="Enter Email">
+            <div id="emailMsg" class="message"></div>
+
+            <input type="password" id="password" placeholder="Enter Password">
+            <div id="passMsg" class="message"></div>
+
+            <button type="submit">Register</button>
+        </form>
+    </div>
+
+    <script>
+        const form = document.getElementById("form");
+
+        form.addEventListener("submit", function(e) {
+            e.preventDefault();
+
+            let valid = true;
+
+            const name = document.getElementById("name").value.trim();
+            const nameMsg = document.getElementById("nameMsg");
+
+            if (name === "") {
+                nameMsg.textContent = "Name cannot be empty";
+                nameMsg.className = "message error";
+                valid = false;
+            } else {
+                nameMsg.textContent = "Looks good ✔";
+                nameMsg.className = "message success";
+            }
+
+            const email = document.getElementById("email").value.trim();
+            const emailMsg = document.getElementById("emailMsg");
+            const emailRegex = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+
+            if (!emailRegex.test(email)) {
+                emailMsg.textContent = "Enter a valid email";
+                emailMsg.className = "message error";
+                valid = false;
+            } else {
+                emailMsg.textContent = "Valid email ✔";
+                emailMsg.className = "message success";
+            }
+
+            const password = document.getElementById("password").value;
+            const passMsg = document.getElementById("passMsg");
+
+            if (password.length < 6) {
+                passMsg.textContent = "Password must be at least 6 characters";
+                passMsg.className = "message error";
+                valid = false;
+            } else {
+                passMsg.textContent = "Strong password ✔";
+                passMsg.className = "message success";
+            }
+
+            if (valid) {
+                alert("Registration Successful ");
+            }
+        });
+    </script>
+
+</body>
+</html>

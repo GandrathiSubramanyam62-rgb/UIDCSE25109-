@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> Registration Form</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #0B1D3A, #1C3D6E);
+            color: white;
+        }
+
+        .header {
+            text-align: center;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            background: #0B1D3A;
+            border-bottom: 3px solid gold;
+        }
+
+        .container {
+            width: 320px;
+            margin: 80px auto;
+            background: #12264D;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: gold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        input:focus {
+            outline: 2px solid gold;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background: gold;
+            color: #0B1D3A;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        button:hover {
+            background: #FFD700;
+        }
+
+        .error {
+            color: #ff4d4d;
+            font-size: 14px;
+        }
+
+        .success {
+            color: #00ffcc;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="header">
+    G. SUBRAMANYAM CSE25109
+</div>
+
+<div class="container">
+    <h2> Registration Form </h2>
+
+    <form id="form">
+        <input type="text" placeholder="Username" required>
+        <input type="email" id="email" placeholder="Email" required>
+        <p id="message"></p>
+        <button type="submit">Register</button>
+    </form>
+</div>
+
+<script>
+    const form = document.getElementById("form");
+    const emailInput = document.getElementById("email");
+    const message = document.getElementById("message");
+
+    function validateEmail(email) {
+        let pattern = /^[^ ]+@[^ ]+\.[a-z]{2,3}$/;
+        return pattern.test(email);
+    }
+
+    form.addEventListener("submit", function(event) {
+        let email = emailInput.value;
+
+        if (!validateEmail(email)) {
+            event.preventDefault(); // stop form submission
+            message.textContent = "Invalid email format!";
+            message.className = "error";
+        } else {
+            message.textContent = "Registration successful!";
+            message.className = "success";
+        }
+    });
+</script>
+
+</body>
+</html>

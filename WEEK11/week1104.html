@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Mobile Validation</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #000000, #8b0000);
+            color: white;
+            text-align: center;
+        }
+
+        .top-heading {
+            background: #000000;
+            color: gold;
+            padding: 15px;
+            font-size: 22px;
+            font-weight: bold;
+            border-bottom: 2px solid gold;
+            box-shadow: 0 0 10px red;
+        }
+
+        .container {
+            background: rgba(0, 0, 0, 0.75);
+            margin: 80px auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 20px red;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 15px;
+            color: gold;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            border: 2px solid red;
+            border-radius: 6px;
+            outline: none;
+            font-size: 16px;
+        }
+
+        input:focus {
+            box-shadow: 0 0 10px red;
+        }
+
+        .message {
+            margin-top: 10px;
+            font-size: 14px;
+        }
+
+        .error {
+            color: #ff4d4d;
+        }
+
+        .success {
+            color: #00ff99;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="top-heading">
+        G.SUBRAMANYAM CSE 25109
+    </div>
+
+    <div class="container">
+        <h2>Mobile Validation</h2>
+
+        <input type="text" id="mobile" placeholder="Enter Mobile Number">
+        <div id="msg" class="message"></div>
+    </div>
+
+    <script>
+        const mobileInput = document.getElementById("mobile");
+        const message = document.getElementById("msg");
+
+        mobileInput.addEventListener("blur", function() {
+            const value = mobileInput.value.trim();
+
+            const regex = /^[0-9]{10}$/;
+
+            if (value === "") {
+                message.textContent = "Mobile number cannot be empty";
+                message.className = "message error";
+            } 
+            else if (!regex.test(value)) {
+                message.textContent = "Enter a valid 10-digit mobile number";
+                message.className = "message error";
+            } 
+            else {
+                message.textContent = "Valid mobile number ✔";
+                message.className = "message success";
+            }
+        });
+    </script>
+
+</body>
+</html>
